@@ -7,10 +7,27 @@
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-  box-sizing: border-box;
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+.grid-col-span-3 {
+  grid-column: span 3;
+}
+
+.grid-row-span-3 {
+  grid-row: span 3;
 }
 
 :root {
@@ -25,6 +42,10 @@ html {
   --color-tertiary-opacity: hsl(53, 98%, 70%, 0.5);
   --gradient-primary: linear-gradient(to top left, hsl(173, 58%, 39%), hsl(268, 67%, 66%), hsl(53, 98%, 70%));
   --gradient-secondary: linear-gradient(to top left, hsl(41, 100%, 51%), hsl(48, 100%, 51%));
+  --font-color: hsl(0, 0%, 27%);
+  --font-color-lighter: hsl(0, 0%, 39%);
+  --font-color-darker:hsl(0, 0%, 1%);
+  --bg-color: hsl(0, 0%, 100%);
 }
 
 .btn {
@@ -64,18 +85,15 @@ html {
   align-items: center;
   height: 9rem;
   width: 100%;
-  padding: 0 6rem;
-  z-index: 100;
+  padding: 6rem 10rem;
 }
-
-/* nav and stickly class at the same time */
 .nav.sticky {
   position: fixed;
   background-color: hsla(0, 0%, 100%, 0.949);
 }
 
 .nav-logo {
-  height: 4.5rem;
+  height: 2.5rem;
   transition: all 0.3s;
 }
 
@@ -84,76 +102,67 @@ html {
   align-items: center;
   list-style: none;
 }
-
-.nav-item {
+.nav-links .nav-item {
   margin-left: 4rem;
 }
-
-.nav-link:link,
-.nav-link:visited {
-  font-size: 1.7rem;
-  font-weight: 400;
-  color: inherit;
-  text-decoration: none;
+.nav-links .nav-item .nav-link {
+  font-size: 1.2rem;
+  font-weight: bold;
   display: block;
   transition: all 0.3s;
+  color: var(--font-color);
 }
-
-.nav-link--btn:link,
-.nav-link--btn:visited {
+.nav-links .nav-item .nav-link:hover, .nav-links .nav-item .nav-link:active {
+  color: var(--color-primary);
+}
+.nav-links .nav-item .nav-link--btn {
   padding: 0.8rem 2.5rem;
   border-radius: 3rem;
   background-color: var(--color-primary);
-  color: hsl(0, 0%, 13%);
+  color: var(--font-color);
 }
-
-.nav-link--btn:hover,
-.nav-link--btn:active {
-  color: inherit;
+.nav-links .nav-item .nav-link--btn:hover,
+.nav-links .nav-item .nav-link--btn:active {
   background-color: var(--color-primary-darker);
   color: hsl(0, 0%, 20%);
 }
 
 .header {
-  padding: 0 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .header-title {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 5rem 10rem;
 }
-.header-title span {
-  display: flex;
-  align-items: center;
-}
-.header-title span .header-logo {
-  height: 6rem;
-}
-
-h1 {
-  font-size: 4rem;
+.header-title h1 {
+  font-size: 2.5rem;
   line-height: 1.35;
+  grid-column: span 2;
 }
-
-h4 {
-  font-size: 2.4rem;
+.header-title h1 span {
+  font-size: 5.5rem;
+}
+.header-title h4 {
+  font-size: 1.5rem;
   font-weight: 500;
+  grid-column: span 2;
 }
 
 .header-img {
-  width: 100%;
-  grid-column: 2/3;
-  grid-row: 1/span 4;
+  width: 40rem;
+  grid-row: span 2;
 }
 
 .features {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin: 0 12rem;
 }
 
 .features-img {
@@ -580,13 +589,14 @@ h4 {
 
 body {
   font-family: "Raleway", sans-serif;
-  color: hsl(0, 0%, 27%);
-  background-color: hsl(0, 0%, 91%);
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 /* GENERAL ELEMENTS */
 .section {
   border-top: 1px solid hsl(0, 0%, 87%);
+  padding: 6rem 10rem;
   transition: transform 1s, opacity 1s;
 }
 
@@ -595,14 +605,10 @@ body {
   transform: translateY(8rem);
 }
 
-.section-title {
-  max-width: 80vw;
-}
-
 .section-description {
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .section-header {
@@ -612,7 +618,7 @@ body {
 }
 
 p {
-  color: hsl(0, 0%, 40%);
+  color: var(--font-color-lighter);
 }
 
 img {
@@ -621,16 +627,4 @@ img {
 
 .lazy-img {
   filter: blur(20px);
-}
-
-/* COOKIE MESSAGE */
-.cookie-message {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(0, 0%, 73%);
-  font-size: 1.5rem;
-  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */
