@@ -3,7 +3,8 @@ MyBankApp is a JavaScript-based bank app that I created to showcase my skills in
 
 ## Flowchart
 
-<img width="2240" alt="bankapp" src="https://user-images.githubusercontent.com/113769418/227392218-e8aecfdc-08b6-445b-8d6b-082e2092014a.png">
+<img width="2240" alt="Bank App Flowchart" src="https://user-images.githubusercontent.com/113769418/227743051-a395aee7-7643-4b24-9c9a-90dac223ad38.png">
+
 
 ## Features
 
