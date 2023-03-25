@@ -8,18 +8,19 @@ I started by defining the purpose and functionality of the app, and then created
 <img width="2240" alt="Bank App Flowchart" src="https://user-images.githubusercontent.com/113769418/227743051-a395aee7-7643-4b24-9c9a-90dac223ad38.png">
 
 
-##Design
+## Design
 Color Palette
 Next, I focused on the visual design of the app. I chose a color scheme that was both aesthetically pleasing and appropriate for the app's purpose. I selected colors that complemented each other and conveyed the right tone and mood, such as a bright, modern palette for my banking app.Thus, I decided on the following colors:*insert colors*.
 
 Font
 I also chose a font that was readable, easy on the eyes, and consistent with the app's brand identity. I looked for a font that was both functional and visually appealing, and that conveyed the right tone and personality for the app. The font I decided on was: ‘OpenSans’.
 
-##Layout
+## Layout
 For the layout of the app, I looked for inspiration from other successful apps and websites, and then adapted those designs to suit the specific needs and requirements of my app. I considered factors such as ease of use, clarity of information, and visual appeal when creating the layout.
 
 I also created a custom logo and a hero image  to enhance the visual appeal and user experience of the app. I used tools like Adobe Illustrator or Procreate to create high-quality, professional-looking graphics and images.
-##Styling
+
+## Styling
 For styling I decided on using SASS, with the VSCode Plug-in Live Sass Compiler for ease of use. I prefer using Sass over normal CSS for the following reasons:
 
 Modularity: Sass allows you to break your CSS code into smaller, more manageable modules using features like variables, mixins, and nesting. This can make it easier to write and maintain your CSS code, especially for larger projects.
