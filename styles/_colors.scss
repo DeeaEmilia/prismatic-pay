@@ -1,0 +1,13 @@
+:root {
+  --color-primary: hsl(268, 67%, 80%);
+  --color-secondary: hsl(154, 52%, 56%);
+  --color-tertiary: hsl(53, 97%, 70%);
+  --color-primary-darker: hsl(268, 67%, 70%);
+  --color-secondary-darker: hsl(173, 58%, 40%);
+  --color-tertiary-darker: hsl(53, 98%, 45%);
+  --color-primary-opacity: hsla(268, 67%, 80%, 0.5);
+  --color-secondary-opacity: hsl(173, 58%, 40%, 0.5);
+  --color-tertiary-opacity: hsl(53, 98%, 70%, 0.5);
+  --gradient-primary: linear-gradient(to top left, hsl(173, 58%, 39%), hsl(268, 67%, 66%),  hsl(53, 98%, 70%));
+  --gradient-secondary: linear-gradient(to top left, hsl(41, 100%, 51%), hsl(48, 100%, 51%));
+}
