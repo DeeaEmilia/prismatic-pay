@@ -10,58 +10,58 @@
   </head>
 
   <body>
-    <div id="marketing-content">
-      <header class="header">
-        <nav class="nav">
-          <a href="#">
-            <img
-              src="img/PrismaticPay.png"
-              alt="Bankist logo"
-              class="nav-logo"
-              id="logo"
-            />
-          </a>
-          <ul class="nav-links">
-            <li class="nav-item">
-              <a class="nav-link" href="#section--1">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section--2">Operations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#section--3">Testimonials</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link--btn btn--show-modal" href="#"
-                >Log in</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <div class="header-title">
-          <h1>
-            Welcome to
-            <div class="highlight">
-              <span>PrimasticPay</span>
-            </div>
-          </h1>
+    <header class="header">
+      <nav class="nav">
+        <a href="#">
           <img
-            src="img/hero.png"
-            class="header-img"
-            alt="Minimalist bank items"
+            src="img/PrismaticPay.png"
+            alt="Bankist logo"
+            class="nav-logo"
+            id="logo"
           />
-          <h4>
-            Embrace the colorful banking experience designed to brighten your
-            financial journey.<br />
-          </h4>
-          <button class="btn--text btn--scroll-to">
-            Learn more &DownArrow;
-          </button>
-          <button class="image-button"></button>
-        </div>
-      </header>
+        </a>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a class="nav-link" href="#section--1">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section--2">Operations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section--3">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section--4">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link--btn btn--show-modal" href="#"
+              >My Account</a
+            >
+          </li>
+        </ul>
+      </nav>
 
+      <div class="header-title">
+        <h1>
+          Welcome to
+          <div class="highlight">
+            <span>PrimasticPay</span>
+          </div>
+        </h1>
+        <img
+          src="img/hero.png"
+          class="header-img"
+          alt="Minimalist bank items"
+        />
+        <h4>
+          Embrace the colorful banking experience designed to brighten your
+          financial journey.<br />
+        </h4>
+        <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+        <button class="image-button"></button>
+      </div>
+    </header>
+    <div id="marketing-content">
       <section class="section" id="section--1">
         <div class="section-title">
           <h2 class="section-description">Features</h2>
@@ -291,42 +291,48 @@
           <h2 class="section-description">Need more info?</h2>
           <h3 class="section-header">Frequently Asked Questions:</h3>
         </div>
-        <details>
-          <summary class="question">How do I log in?</summary>
-          <div class="answer">
-            <p>
-              You can use the following accounts and passwords for demonstration
-              purposes:
-            </p>
-          </div>
-        </details>
-        <details>
-          <summary class="question">Where do I see my banking info?</summary>
-          <div class="answer">
-            <p>
-              You can use the following accounts and passwords for demonstration
-              purposes:
-            </p>
-          </div>
-        </details>
-        <details>
-          <summary class="question">How do I request a loan?</summary>
-          <div class="answer">
-            <p>
-              You can use the following accounts and passwords for demonstration
-              purposes:
-            </p>
-          </div>
-        </details>
-        <details>
-          <summary class="question">How do I log in?</summary>
-          <div class="answer">
-            <p>
-              You can use the following accounts and passwords for demonstration
-              purposes:
-            </p>
-          </div>
-        </details>
+        <p class="question">How do I log in?</p>
+        <div class="answer">
+          <p>You can use the following usernames and passwords:</p>
+          <ol>
+            <li>
+              <ul class="login-details">
+                <li><strong>Username:</strong> vsummers</li>
+                <li><strong>Password:</strong> ArrayOfSunshine</li>
+              </ul>
+            </li>
+            <li>
+              <ul class="login-details">
+                <li><strong>Username:</strong> cthompson</li>
+                <li><strong>Password:</strong> JSBankVault</li>
+              </ul>
+            </li>
+
+            <li>
+              <ul class="login-details">
+                <li><strong>Username:</strong> arayleigh</li>
+                <li><strong>Password:</strong> SassMaster2000</li>
+              </ul>
+            </li>
+
+            <li>
+              <ul class="login-details">
+                <li><strong>Username:</strong> imartinez</li>
+                <li><strong>Password:</strong> MethodToTheMadnes</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <p class="question">What can I do once I log in?</p>
+        <div class="answer">
+          <ol class="functionality-answer">
+            <li>You are able to see "your" account with all the movements in it, current balance and a summary.</li>
+            <li>You can transfer money to one of the other above mentioned accounts with their respective username.</li>
+            <li>You are able to request a loan.</li>
+            <li>You can delete "your" account. Please keep in mind that if you refresh the page, the account will reappear since the data is stroed in an array.</li>
+          </ol>
+        </div>
       </section>
 
       <footer class="footer">
@@ -394,7 +400,17 @@
         <div class="operation operation--transfer">
           <h2>Transfer money</h2>
           <form class="form form--transfer">
-            <input type="text" class="form-input form-input--to" />
+            <input
+              list="exampleList"
+              type="text"
+              class="form-input form-input--to"
+            />
+            <datalist id="exampleList">
+              <option value="vsummers"></option>
+              <option value="imartinez"></option>
+              <option value="cthompson"></option>
+              <option value="arayleigh"></option>
+            </datalist>
             <input type="number" class="form-input form-input--amount" />
             <button class="form-btn form-btn--transfer">&rarr;</button>
             <label class="form-label">Transfer to</label>

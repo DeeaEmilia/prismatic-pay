@@ -34,6 +34,14 @@ const inputLoanAmount = document.querySelector('.form-input--loan-amount');
 const inputCloseUsername = document.querySelector('.form-input--user');
 const inputClosePassword = document.querySelector('.form-input--password');
 
+const marketing = document.getElementById('marketing-content');
+const headerTitle = document.querySelector('.header-title');
+const accountInfo = document.getElementById('account-info');
+
+const navLogo = document.querySelector('.nav-logo');
+const navLinks = document.querySelectorAll('.nav-link');
+const backLink = document.querySelector('.back');
+
 //Note: Data
 
 const account1 = {
@@ -78,26 +86,21 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-// Add click event listeners to all open buttons to open the modal window
-btnOpenModal.forEach((btn) => btn.addEventListener('click', openModal));
+const hideMarketing = function () {
+  marketing.style.display = 'none';
+  headerTitle.style.display = 'none';
+  accountInfo.style.display = 'grid';
+};
 
-// Add click event listener to close button to close the modal window
-btnCloseModal.addEventListener('click', closeModal);
-// Add click event listener to overlay to close the modal window
-overlay.addEventListener('click', closeModal);
-
-// Add keydown event listener to document to close the modal window when 'Escape' key is pressed
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-    closeModal();
-  }
-});
+const showMarketing = function () {
+  marketing.style.display = 'grid';
+  headerTitle.style.display = 'grid';
+  accountInfo.style.display = 'none';
+};
 
 //Note: change to banking view
 
 let currentAccount;
-
-
 
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -107,6 +110,8 @@ const currencies = new Map([
 ]);
 
 const displayMovements = function (movements) {
+  // Clear previous user's movements
+  clearMovements();
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
@@ -125,7 +130,7 @@ const displayMovements = function (movements) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 const createUsernames = function (accs) {
@@ -158,11 +163,30 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `${Math.abs(interest)}€`;
 };
 
+const clearMovements = function () {
+  containerMovements.innerHTML = '';
+};
+
 const updateUI = function (acc) {
   displayMovements(acc.movements);
   calcDisplayBalance(acc);
   calcDisplaySummary(acc);
-}
+};
+
+// Add click event listeners to all open buttons to open the modal window
+btnOpenModal.forEach((btn) => btn.addEventListener('click', openModal));
+
+// Add click event listener to close button to close the modal window
+btnCloseModal.addEventListener('click', closeModal);
+// Add click event listener to overlay to close the modal window
+overlay.addEventListener('click', closeModal);
+
+// Add keydown event listener to document to close the modal window when 'Escape' key is pressed
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
 
 document.getElementById('login-form').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -175,10 +199,9 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
     if (currentAccount.password === inputLoginPassword.value) {
       closeModal();
       // Hide marketing content and show account information
-      document.getElementById('marketing-content').style.display = 'none';
-      document.getElementById('account-info').style.display = 'grid';
+      hideMarketing();
       labelWelcome.textContent = `Welcome back, ${currentAccount.owner}`;
-      
+
       updateUI(currentAccount);
     } else {
       // Show an error message for incorrect password
@@ -198,13 +221,75 @@ btnTransfer.addEventListener('click', function (e) {
   const receiverAcc = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
+  inputTransferAmount.value = inputTransferTo.value = '';
 
-  if (amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username) {
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
     updateUI(currentAccount);
+  } else if (amount <= 0) {
+    alert('The amount must be higher than 0.');
+  } else if (!receiverAcc) {
+    alert('Plese check documentation for valid receiver accounts.');
+  } else if (currentAccount.balance < amount) {
+    alert('Insuficient funds for transfer.');
+  } else if (receiverAcc.username === currentAccount.username) {
+    alert('You cannot transfer money to yourself.');
+  } else {
+    alert(
+      'Something went wrong. Please consult documentation on Github for more information on how to transfer money!'
+    );
   }
-})
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    inputClosePassword.value === currentAccount.password
+  ) {
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    accounts.splice(index, 1);
+
+    showMarketing();
+    console.log(accounts);
+  } else {
+    alert('Wrong username or password');
+  }
+  inputCloseUsername.value = inputClosePassword.value = '';
+});
+console.log(accounts);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const showMarketingAndNavigate = function (event) {
+  // Call the showMarketing function
+  showMarketing();
+
+  // Prevent default navigation behavior
+  event.preventDefault();
+
+  // Scroll to the desired section smoothly
+  const target = event.target.getAttribute('href');
+  if (target !== '#') {
+    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+// Add event listeners to the logo and the nav-links
+document.addEventListener('DOMContentLoaded', function () {
+  navLogo.addEventListener('click', showMarketingAndNavigate);
+  backLink.addEventListener('click', showMarketingAndNavigate);
+  navLinks.forEach((link) => {
+    link.addEventListener('click', showMarketingAndNavigate);
+  });
+});
