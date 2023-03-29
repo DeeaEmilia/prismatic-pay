@@ -13,6 +13,24 @@
   }
 }
 
+.logo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  p {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--color-primary-lighter);
+
+    a {
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
 .nav-logo {
   height: 2.5rem;
   transition: all 0.3s;

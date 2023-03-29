@@ -14,12 +14,12 @@
       <header class="header">
         <nav class="nav">
           <a href="#">
-          <img
-            src="img/PrismaticPay.png"
-            alt="Bankist logo"
-            class="nav-logo"
-            id="logo"
-          />
+            <img
+              src="img/PrismaticPay.png"
+              alt="Bankist logo"
+              class="nav-logo"
+              id="logo"
+            />
           </a>
           <ul class="nav-links">
             <li class="nav-item">
@@ -33,7 +33,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link--btn btn--show-modal" href="#"
-                >Sign in</a
+                >Log in</a
               >
             </li>
           </ul>
@@ -53,11 +53,12 @@
           />
           <h4>
             Embrace the colorful banking experience designed to brighten your
-            financial journey.
+            financial journey.<br />
           </h4>
           <button class="btn--text btn--scroll-to">
             Learn more &DownArrow;
           </button>
+          <button class="image-button"></button>
         </div>
       </header>
 
@@ -279,14 +280,53 @@
             </div>
           </div>
 
-          <!-- <div class="slide"><img src="img/img-1.jpg" alt="Photo 1" /></div>
-        <div class="slide"><img src="img/img-2.jpg" alt="Photo 2" /></div>
-        <div class="slide"><img src="img/img-3.jpg" alt="Photo 3" /></div>
-        <div class="slide"><img src="img/img-4.jpg" alt="Photo 4" /></div> -->
           <button class="slider-btn slider-btn--left">&larr;</button>
           <button class="slider-btn slider-btn--right">&rarr;</button>
           <div class="dots"></div>
         </div>
+      </section>
+
+      <section class="section" id="section--4">
+        <div class="section-title section-title--testimonials">
+          <h2 class="section-description">Need more info?</h2>
+          <h3 class="section-header">Frequently Asked Questions:</h3>
+        </div>
+        <details>
+          <summary class="question">How do I log in?</summary>
+          <div class="answer">
+            <p>
+              You can use the following accounts and passwords for demonstration
+              purposes:
+            </p>
+          </div>
+        </details>
+        <details>
+          <summary class="question">Where do I see my banking info?</summary>
+          <div class="answer">
+            <p>
+              You can use the following accounts and passwords for demonstration
+              purposes:
+            </p>
+          </div>
+        </details>
+        <details>
+          <summary class="question">How do I request a loan?</summary>
+          <div class="answer">
+            <p>
+              You can use the following accounts and passwords for demonstration
+              purposes:
+            </p>
+          </div>
+        </details>
+        <details>
+          <summary class="question">How do I log in?</summary>
+          <div class="answer">
+            <p>
+              You can use the following accounts and passwords for demonstration
+              purposes:
+            </p>
+          </div>
+        </details>
       </section>
 
       <footer class="footer">
@@ -316,108 +356,98 @@
         <img src="img/icon.png" alt="Logo" class="footer-logo" />
         <p class="footer-copyright">&copy; Copyright by Andreea-Emilia Duta</p>
       </footer>
-
-      <!-- Modal -->
-      <div class="modal hidden">
-        <button class="btn--close-modal">&times;</button>
-        <h2 class="modal-header">Login to your Prismatic Account</h2>
-        <form class="modal-form" id="login-form">
-          <label for="name">User ID</label>
-          <input type="text" name="name" id="user-id" required />
-          <label for="name">Password</label>
-          <input type="password" name="password" id="user-password" required />
-          <button type="submit" class="btn">Login</button>
-        </form>
-      </div>
-      <div class="overlay hidden"></div>
     </div>
+    <!-- Modal -->
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal-header">Sign into your Prismatic Account</h2>
+      <form class="modal-form" id="login-form">
+        <label for="name">User ID</label>
+        <input type="text" name="name" id="user-id" required />
+        <label for="name">Password</label>
+        <input type="password" name="password" id="user-password" required />
+        <button type="submit" class="btn login-btn">Submit</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
 
     <!-- Bank App -->
     <div class="app" id="account-info">
+      <div class="welcome-wrapper">
+        <a href="#" class="back"><- Go back</a>
+        <p class="welcome"></p>
+      </div>
       <!-- BALANCE -->
       <div class="balance">
         <div>
           <p class="balance-label">Current balance</p>
-          <p class="balance-date">
-            As of <span class="date">05/03/2037</span>
-          </p>
+          <p class="balance-date">As of <span class="date">05/03/2037</span></p>
         </div>
         <p class="balance-value">0000€</p>
       </div>
 
       <!-- MOVEMENTS -->
-      <div class="movements">
-        <div class="movements-row">
-          <div class="movements-type movements-type--deposit">2 deposit</div>
-          <div class="movements-date">3 days ago</div>
-          <div class="movements-value">4 000€</div>
+      <div class="movements"></div>
+
+      <div class="operations-wrapper">
+        <!-- OPERATION: TRANSFERS -->
+        <div class="operation operation--transfer">
+          <h2>Transfer money</h2>
+          <form class="form form--transfer">
+            <input type="text" class="form-input form-input--to" />
+            <input type="number" class="form-input form-input--amount" />
+            <button class="form-btn form-btn--transfer">&rarr;</button>
+            <label class="form-label">Transfer to</label>
+            <label class="form-label">Amount</label>
+          </form>
         </div>
-        <div class="movements-row">
-          <div class="movements-type movements-type--withdrawal">
-            1 withdrawal
+
+        <!-- OPERATION: LOAN -->
+        <div class="operation operation--loan">
+          <h2>Request loan</h2>
+          <form class="form form--loan">
+            <input type="number" class="form-input form-input--loan-amount" />
+            <button class="form-btn form-btn--loan">&rarr;</button>
+            <label class="form-label form-label--loan">Amount</label>
+          </form>
+        </div>
+
+        <!-- OPERATION: CLOSE -->
+        <div class="operation operation--close">
+          <h2>Close account</h2>
+          <form class="form form--close">
+            <input type="text" class="form-input form-input--user" />
+            <input type="password" class="form-input form-input--password" />
+            <button class="form-btn form-btn--close">&rarr;</button>
+            <label class="form-label">Confirm user</label>
+            <label class="form-label">Confirm password</label>
+          </form>
+        </div>
+        <!-- SUMMARY -->
+        <div class="summary">
+          <button class="btn--sort">&downarrow; SORT</button>
+
+          <div class="summary-wrapper">
+            <p class="summary-label">In</p>
+            <p class="summary-value summary-value--in">0000€</p>
           </div>
-          <div class="movements-date">24/01/2037</div>
-          <div class="movements-value">-378€</div>
+
+          <div class="summary-wrapper">
+            <p class="summary-label">Out</p>
+            <p class="summary-value summary-value--out">0000€</p>
+          </div>
+
+          <div class="summary-wrapper">
+            <p class="summary-label">Interest</p>
+            <p class="summary-value summary-value--interest">0000€</p>
+          </div>
         </div>
+        <!-- LOGOUT TIMER -->
+        <p class="logout-timer">
+          You will be logged out in <span class="timer">05:00</span>
+        </p>
       </div>
-
-      <!-- SUMMARY -->
-      <div class="summary">
-        <p class="summary-label">In</p>
-        <p class="summary-value summary-value--in">0000€</p>
-        <p class="summary-label">Out</p>
-        <p class="summary-value summary-value--out">0000€</p>
-        <p class="summary-label">Interest</p>
-        <p class="summary-value summary-value--interest">0000€</p>
-        <button class="btn--sort">&downarrow; SORT</button>
-      </div>
-
-      <!-- OPERATION: TRANSFERS -->
-      <div class="operation operation--transfer">
-        <h2>Transfer money</h2>
-        <form class="form form--transfer">
-          <input type="text" class="form-input form-input--to" />
-          <input type="number" class="form-input form-input--amount" />
-          <button class="form-btn form-btn--transfer">&rarr;</button>
-          <label class="form-label">Transfer to</label>
-          <label class="form-label">Amount</label>
-        </form>
-      </div>
-
-      <!-- OPERATION: LOAN -->
-      <div class="operation operation--loan">
-        <h2>Request loan</h2>
-        <form class="form form--loan">
-          <input type="number" class="form-input form-input--loan-amount" />
-          <button class="form-btn form-btn--loan">&rarr;</button>
-          <label class="form-label form-label--loan">Amount</label>
-        </form>
-      </div>
-
-      <!-- OPERATION: CLOSE -->
-      <div class="operation operation--close">
-        <h2>Close account</h2>
-        <form class="form form--close">
-          <input type="text" class="form-input form-input--user" />
-          <input
-            type="password"
-            maxlength="6"
-            class="form-input form-input--pin"
-          />
-          <button class="form-btn form-btn--close">&rarr;</button>
-          <label class="form-label">Confirm user</label>
-          <label class="form-label">Confirm PIN</label>
-        </form>
-      </div>
-
-      <!-- LOGOUT TIMER -->
-      <p class="logout-timer">
-        You will be logged out in <span class="timer">05:00</span>
-      </p>
-
     </div>
-
-
     <script src="./scripts/main.js"></script>
   </body>
 </html>

@@ -1,49 +1,42 @@
 #account-info {
   display: none;
-  position: relative;
-  max-width: 100rem;
-  margin: 4rem auto;
-
-  grid-template-columns: 4fr 3fr;
-  grid-template-rows: auto repeat(3, 15rem) auto;
+  padding: 3rem 10rem;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
 .balance {
-  grid-column: 1 / span 2;
   display: flex;
-  align-items: flex-end;
+
   justify-content: space-between;
   margin-bottom: 2rem;
 }
 
 .balance-label {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 500;
-  margin-bottom: -0.2rem;
 }
 
 .balance-date {
-  font-size: 1.4rem;
   color: #888;
 }
 
 .balance-value {
-  font-size: 4.5rem;
+  font-size: 2rem;
   font-weight: 400;
 }
 
 /* MOVEMENTS */
 .movements {
-  grid-row: 2 / span 3;
   background-color: #fff;
   border-radius: 1rem;
   overflow: scroll;
 }
 
 .movements-row {
-  padding: 2.25rem 4rem;
+  padding: 1rem 3rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #eee;
 }
@@ -55,7 +48,6 @@
   color: #fff;
   padding: 0.1rem 1rem;
   border-radius: 10rem;
-  margin-right: 2rem;
 }
 
 .movements-date {
@@ -75,14 +67,20 @@
 
 .movements-value {
   font-size: 1.7rem;
-  margin-left: auto;
 }
 
 /* SUMMARY */
-.summary {
-  grid-row: 5 / 6;
+
+.summary-wrapper {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 0.3rem;
   margin-top: 1rem;
 }
@@ -91,12 +89,12 @@
   font-size: 1.2rem;
   font-weight: 500;
   text-transform: uppercase;
-  margin-right: 0.8rem;
+
 }
 
 .summary-value {
   font-size: 2.2rem;
-  margin-right: 2.5rem;
+
 }
 
 .summary-value--in,
@@ -109,7 +107,6 @@
 }
 
 .btn--sort {
-  margin-left: auto;
   border: none;
   background: none;
   font-size: 1.3rem;
@@ -137,16 +134,12 @@
 }
 
 h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.7rem;
-  font-weight: 600;
   color: #333;
 }
 
 .form {
   display: grid;
   grid-template-columns: 2.5fr 2.5fr 1fr;
-  grid-template-rows: auto auto;
   gap: 0.4rem 1rem;
 }
 
@@ -205,4 +198,14 @@ h2 {
 
 .timer {
   font-weight: 600;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .welcome {
+    font-size: 1.5rem;
+  }
 }

@@ -8,6 +8,7 @@
   border-radius: 10rem;
   cursor: pointer;
   transition: all 0.3s;
+ 
 
   &:hover {
     background-color: var(--color-primary-darker);
@@ -25,4 +26,16 @@
   padding-bottom: 2px;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+
+
+.image-button {
+  background-image: url('/img/test.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
