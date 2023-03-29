@@ -97,34 +97,7 @@ document.addEventListener('keydown', function (e) {
 
 let currentAccount;
 
-document.getElementById('login-form').addEventListener('submit', function (e) {
-  e.preventDefault();
 
-  currentAccount = accounts.find(
-    (acc) => acc.username === inputLoginUsername.value
-  );
-
-  if (currentAccount) {
-    if (currentAccount.password === inputLoginPassword.value) {
-      closeModal();
-      // Hide marketing content and show account information
-      document.getElementById('marketing-content').style.display = 'none';
-      document.getElementById('account-info').style.display = 'grid';
-      labelWelcome.textContent = `Welcome back, ${currentAccount.owner}`;
-      displayMovements(currentAccount.movements);
-        calcDisplayBalance(currentAccount.movements);
-        calcDisplaySummary(currentAccount.movements);
-    } else {
-      // Show an error message for incorrect password
-      alert('Invalid password. Please try again!');
-    }
-  } else {
-    // Show an error message for non-existing or incorrect username
-    alert(
-      'Invalid username. Please check the documentation on GitHub for the correct username and password'
-    );
-  }
-});
 
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -150,8 +123,8 @@ const displayMovements = function (movements) {
   });
 };
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
 };
 
@@ -166,24 +139,72 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements
+  const out = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter((mov) => mov > 0)
-    .map((deposit) => (deposit * 1.2) / 100)
+    .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int) => int >= 1)
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${Math.abs(interest)}€`;
 };
 
+const updateUI = function (acc) {
+  displayMovements(acc.movements);
+  calcDisplayBalance(acc);
+  calcDisplaySummary(acc);
+}
+
+document.getElementById('login-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+
+  if (currentAccount) {
+    if (currentAccount.password === inputLoginPassword.value) {
+      closeModal();
+      // Hide marketing content and show account information
+      document.getElementById('marketing-content').style.display = 'none';
+      document.getElementById('account-info').style.display = 'grid';
+      labelWelcome.textContent = `Welcome back, ${currentAccount.owner}`;
+      
+      updateUI(currentAccount);
+    } else {
+      // Show an error message for incorrect password
+      alert('Invalid password. Please try again!');
+    }
+  } else {
+    // Show an error message for non-existing or incorrect username
+    alert(
+      'Invalid username. Please check the documentation on GitHub for the correct username and password'
+    );
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === inputTransferTo.value
+  );
+
+  if (amount > 0 && receiverAcc && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username) {
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    updateUI(currentAccount);
+  }
+})
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
