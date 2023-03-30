@@ -58,9 +58,9 @@
           financial journey.<br />
         </h4>
         <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
-        <button class="image-button"></button>
       </div>
     </header>
+
     <div id="marketing-content">
       <section class="section" id="section--1">
         <div class="section-title">
@@ -327,10 +327,20 @@
         <p class="question">What can I do once I log in?</p>
         <div class="answer">
           <ol class="functionality-answer">
-            <li>You are able to see "your" account with all the movements in it, current balance and a summary.</li>
-            <li>You can transfer money to one of the other above mentioned accounts with their respective username.</li>
+            <li>
+              You are able to see "your" account with all the movements in it,
+              current balance and a summary.
+            </li>
+            <li>
+              You can transfer money to one of the other above mentioned
+              accounts with their respective username.
+            </li>
             <li>You are able to request a loan.</li>
-            <li>You can delete "your" account. Please keep in mind that if you refresh the page, the account will reappear since the data is stored in an array.</li>
+            <li>
+              You can delete "your" account. Please keep in mind that if you
+              refresh the page, the account will reappear since the data is
+              stored in an array.
+            </li>
           </ol>
         </div>
       </section>
@@ -363,6 +373,7 @@
         <p class="footer-copyright">&copy; Copyright by Andreea-Emilia Duta</p>
       </footer>
     </div>
+
     <!-- Modal -->
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
@@ -372,8 +383,16 @@
         <input type="text" name="name" id="user-id" required />
         <label for="name">Password</label>
         <input type="password" name="password" id="user-password" required />
-        <button type="submit" class="btn login-btn">Submit</button>
+        <div class="btn-wrapper">
+          <button id="show-suggestions" class="btn">Suggestions</button>
+        </div>
+        <div class="btn-wrapper">
+          <button type="submit" class="btn login-btn">Submit</button>
+        </div>
       </form>
+      <div id="suggestions">
+        
+      </div>
     </div>
     <div class="overlay hidden"></div>
 

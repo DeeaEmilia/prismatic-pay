@@ -42,6 +42,9 @@ const navLogo = document.querySelector('.nav-logo');
 const navLinks = document.querySelectorAll('.nav-link');
 const backLink = document.querySelector('.back');
 
+const suggestions = document.getElementById('suggestions');
+const showSuggestionsButton = document.getElementById('show-suggestions');
+
 //Note: Data
 
 const account1 = {
@@ -75,7 +78,8 @@ const account4 = {
 const accounts = [account1, account2, account3, account4];
 
 // Function to open the modal window and display the overlay
-const openModal = function () {
+const openModal = function (e) {
+  e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -215,6 +219,21 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
   }
 });
 
+function displaySuggestions() {
+  suggestions.innerHTML = '';
+
+  for (let account of accounts) {
+    const suggestion = document.createElement('p');
+    suggestion.innerHTML = `User ID: ${account.username}<br>Password: ${account.password}`;
+    suggestions.appendChild(suggestion);
+  }
+}
+
+// Adding the event listener for the "Show Suggestions" button
+
+showSuggestionsButton.addEventListener('click', displaySuggestions);
+
+
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
@@ -248,6 +267,28 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  // Get loan amount value
+  const amount = Number(inputLoanAmount.value);
+
+  // Check if the amount requested is allowed
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    // Add movement
+    currentAccount.movements.push(amount);
+    // Update UI
+    updateUI(currentAccount);
+  } else {
+    alert(
+      'The amount you are requesting is too high. Loans can go up to a max of 10 times higher than your highest deposit.'
+    );
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -261,15 +302,11 @@ btnClose.addEventListener('click', function (e) {
     accounts.splice(index, 1);
 
     showMarketing();
-    console.log(accounts);
   } else {
     alert('Wrong username or password');
   }
   inputCloseUsername.value = inputClosePassword.value = '';
 });
-console.log(accounts);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const showMarketingAndNavigate = function (event) {
   // Call the showMarketing function

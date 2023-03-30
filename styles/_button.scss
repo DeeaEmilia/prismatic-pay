@@ -28,14 +28,9 @@
   transition: all 0.3s;
 }
 
-
-
-.image-button {
-  background-image: url('/img/test.png');
-  background-size: cover;
-  width: 100px;
-  height: 100px;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+ grid-column: span 2;
 }
+
