@@ -210,7 +210,7 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
   } else {
     // Show an error message for non-existing or incorrect username
     alert(
-      'Invalid username. Please check the documentation on GitHub for the correct username and password'
+      'Invalid username. Please check the the FAQ section for the correct username and password'
     );
   }
 });
