@@ -1,17 +1,13 @@
 @import 'reset';
-@import 'grid';
 @import 'colors';
 @import 'button';
-@import 'nav';
 @import 'header';
-@import 'features';
-@import 'operations';
-@import 'testimonials';
-@import 'slider';
-@import 'faq';
-@import 'footer';
+@import 'main';
 @import 'modal';
 @import 'bank';
+@import 'movements';
+@import 'summary';
+@import 'bank-operations';
 
 body {
     font-family: 'Raleway', sans-serif;
@@ -19,10 +15,8 @@ body {
     background-color: var(--bg-color);
 }
 
-/* GENERAL ELEMENTS */
 .section {
-    border-top: 1px solid hsl(0, 0%, 87%);
-    padding: 6rem 10rem;
+    padding: 1rem clamp(0.5rem, 10vw, 6rem) 1rem clamp(0rem, 10vw, 6rem);
     transition: transform 1s, opacity 1s;
 }
 
@@ -53,4 +47,8 @@ img {
 
 .lazy-img {
     filter: blur(20px);
+}
+
+.visually-hidden {
+display: none;
 }

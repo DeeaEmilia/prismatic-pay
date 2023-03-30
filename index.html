@@ -11,7 +11,15 @@
 
     <body>
         <header class="header">
-            <nav class="nav">
+            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                <svg class="hamburger" viewBox="0 0 100 100" width="30">
+                    <rect class="top line" width="80" height="10" x="10" y="25"></rect>
+                    <rect class="middle line" width="80" height="10" x="10" y="45"></rect>
+                    <rect class="bottom line" width="80" height="10" x="10" y="65"></rect>
+                </svg>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <nav class="nav ">
                 <a href="#">
                     <img
                         src="img/PrismaticPay.png"
@@ -20,7 +28,7 @@
                         id="logo"
                     />
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links primary-navigation" data-visible="false">
                     <li class="nav-item">
                         <a class="nav-link" href="#section--1">Features</a>
                     </li>
@@ -484,68 +492,8 @@
             </div>
 
             <!-- MOVEMENTS -->
-            <div class="movements"></div>
-
-            <div class="operations-wrapper">
-                <!-- OPERATION: TRANSFERS -->
-                <div class="operation operation--transfer">
-                    <h2>Transfer money</h2>
-                    <form class="form form--transfer">
-                        <input
-                            list="exampleList"
-                            type="text"
-                            class="form-input form-input--to"
-                        />
-                        <datalist id="exampleList">
-                            <option value="vsummers"></option>
-                            <option value="imartinez"></option>
-                            <option value="cthompson"></option>
-                            <option value="arayleigh"></option>
-                        </datalist>
-                        <input
-                            type="number"
-                            class="form-input form-input--amount"
-                        />
-                        <button class="form-btn form-btn--transfer">
-                            &rarr;
-                        </button>
-                        <label class="form-label">Transfer to</label>
-                        <label class="form-label">Amount</label>
-                    </form>
-                </div>
-
-                <!-- OPERATION: LOAN -->
-                <div class="operation operation--loan">
-                    <h2>Request loan</h2>
-                    <form class="form form--loan">
-                        <input
-                            type="number"
-                            class="form-input form-input--loan-amount"
-                        />
-                        <button class="form-btn form-btn--loan">&rarr;</button>
-                        <label class="form-label form-label--loan"
-                            >Amount</label
-                        >
-                    </form>
-                </div>
-
-                <!-- OPERATION: CLOSE -->
-                <div class="operation operation--close">
-                    <h2>Close account</h2>
-                    <form class="form form--close">
-                        <input
-                            type="text"
-                            class="form-input form-input--user"
-                        />
-                        <input
-                            type="password"
-                            class="form-input form-input--password"
-                        />
-                        <button class="form-btn form-btn--close">&rarr;</button>
-                        <label class="form-label">Confirm user</label>
-                        <label class="form-label">Confirm password</label>
-                    </form>
-                </div>
+            <div class="movements-wrapper">
+                <div class="movements"></div>
                 <!-- SUMMARY -->
                 <div class="summary">
                     <button class="btn--sort">&downarrow; SORT</button>
@@ -571,6 +519,123 @@
                 <p class="logout-timer">
                     You will be logged out in <span class="timer">05:00</span>
                 </p>
+            </div>
+
+            <div class="operations-wrapper">
+                <!-- OPERATION: TRANSFERS -->
+                <div class="operation operation--transfer">
+                    <h2>Transfer money</h2>
+                    <form class="form form--transfer">
+                        <label for="transfer-to" class="form-label"
+                            >Transfer to</label
+                        >
+                        <input
+                            list="exampleList"
+                            type="text"
+                            id="transfer-to"
+                            class="form-input form-input--to"
+                            aria-describedby="transferToDesc"
+                        />
+                        <datalist id="exampleList">
+                            <option value="vsummers"></option>
+                            <option value="imartinez"></option>
+                            <option value="cthompson"></option>
+                            <option value="arayleigh"></option>
+                        </datalist>
+                        <p id="transferToDesc" class="visually-hidden">
+                            Select a user ID from the list to transfer money to.
+                        </p>
+
+                        <label for="transfer-amount" class="form-label"
+                            >Amount</label
+                        >
+                        <input
+                            type="number"
+                            id="transfer-amount"
+                            class="form-input form-input--amount"
+                            aria-describedby="transferAmountDesc"
+                        />
+                        <p id="transferAmountDesc" class="visually-hidden">
+                            Enter the amount of money you want to transfer.
+                        </p>
+
+                        <button
+                            class="form-btn form-btn--transfer"
+                            aria-label="Submit Transfer"
+                        >
+                            &rarr;
+                        </button>
+                    </form>
+                </div>
+
+                <!-- OPERATION: LOAN -->
+                <div class="operation operation--loan">
+                    <h2>Request loan</h2>
+                    <form class="form form--loan">
+                        <label
+                            for="loan-amount"
+                            class="form-label form-label--loan"
+                            >Loan Amount</label
+                        >
+                        <input
+                            type="number"
+                            id="loan-amount"
+                            class="form-input form-input--loan-amount"
+                            aria-describedby="loanAmountDesc"
+                        />
+                        <p id="loanAmountDesc" class="visually-hidden">
+                            Enter the loan amount you want to request.
+                        </p>
+
+                        <button
+                            class="form-btn form-btn--loan"
+                            aria-label="Submit Loan Request"
+                        >
+                            &rarr;
+                        </button>
+                    </form>
+                </div>
+
+                <!-- OPERATION: CLOSE -->
+                <div class="operation operation--close">
+                    <h2>Close account</h2>
+                    <form class="form form--close">
+                        <label for="close-username" class="form-label"
+                            >Confirm user</label
+                        >
+                        <input
+                            type="text"
+                            id="close-username"
+                            class="form-input form-input--user"
+                            placeholder="username"
+                            aria-describedby="closeUsernameDesc"
+                        />
+                        <p id="closeUsernameDesc" class="visually-hidden">
+                            Enter your username to confirm closing the account.
+                        </p>
+
+                        <label for="close-password" class="form-label"
+                            >Confirm password</label
+                        >
+                        <input
+                            type="password"
+                            id="close-password"
+                            class="form-input form-input--password"
+                            placeholder="password"
+                            aria-describedby="closePasswordDesc"
+                        />
+                        <p id="closePasswordDesc" class="visually-hidden">
+                            Enter your password to confirm closing the account.
+                        </p>
+
+                        <button
+                            class="form-btn form-btn--close"
+                            aria-label="Submit Close Account Request"
+                        >
+                            &rarr;
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
         <script src="./scripts/main.js"></script>

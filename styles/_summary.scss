@@ -1,0 +1,52 @@
+.summary-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.3rem;
+    margin-top: 1rem;
+}
+
+.summary-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.summary-value {
+    font-size: 2.2rem;
+}
+
+.summary-value--in,
+.summary-value--interest {
+    color: #66c873;
+}
+
+.summary-value--out {
+    color: #f5465d;
+}
+
+.btn--sort {
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.logout-timer {
+    padding: 0 0.3rem;
+    margin-top: 1.9rem;
+    text-align: right;
+    font-size: 1.25rem;
+}
+
+.timer {
+    font-weight: 600;
+}

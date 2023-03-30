@@ -8,6 +8,10 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnOpenModal = document.querySelectorAll('.btn--show-modal');
 
+const primaryNav = document.querySelector('.primary-navigation');
+//Get the mobile navbar
+const navToggle = document.querySelector('.mobile-nav-toggle');
+
 // Selecting input fields, labels, and buttons related to user account
 const inputLoginUsername = document.getElementById('user-id');
 const inputLoginPassword = document.getElementById('user-password');
@@ -145,12 +149,14 @@ const showMarketingAndNavigate = function (event) {
 };
 
 //Note: function for displaying deposits, withdrawals and loans
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
     // Clear previous user's movements
-    clearMovements();
+    containerMovements.innerHTML = '';
+
+    const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
     // Loop through each movement and create a new HTML element for it
-    movements.forEach(function (mov, i) {
+    movs.forEach(function (mov, i) {
         // Determine whether the movement is a deposit or withdrawal
         const type = mov > 0 ? 'deposit' : 'withdrawal';
 
@@ -184,7 +190,7 @@ const calcDisplaySummary = function (acc) {
     const incomes = acc.movements
         .filter((mov) => mov > 0)
         .reduce((acc, mov) => acc + mov, 0);
-    labelSumIn.textContent = `${incomes}€`;
+    labelSumIn.textContent = `${Math.abs(incomes)}€`;
 
     // Calculate the total outgoing (i.e. sum of all withdrawals)
     const out = acc.movements
@@ -199,11 +205,6 @@ const calcDisplaySummary = function (acc) {
         .filter((int) => int >= 1)
         .reduce((acc, int) => acc + int, 0);
     labelSumInterest.textContent = `${Math.abs(interest)}€`;
-};
-
-// Note: function to clear all movements displayed on the UI
-const clearMovements = function () {
-    containerMovements.innerHTML = '';
 };
 
 // Note: function to update the entire UI with the current account information
@@ -386,3 +387,24 @@ document.addEventListener('keydown', function (e) {
 
 // Event listener for the "Show Suggestions" button
 showSuggestionsButton.addEventListener('click', displaySuggestions);
+
+// Event listener for sort button
+
+// define a state variable
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+    e.preventDefault();
+    displayMovements(currentAccount.movements, !sorted);
+    sorted = !sorted;
+});
+navToggle.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute('data-visible');
+    if (visibility === 'false') {
+        primaryNav.setAttribute('data-visible', true);
+        navToggle.setAttribute('aria-expanded', true);
+    } else if (visibility === 'true') {
+        primaryNav.setAttribute('data-visible', false);
+        navToggle.setAttribute('aria-expanded', false);
+    }
+    console.log(visibility);
+});

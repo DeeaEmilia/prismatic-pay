@@ -1,0 +1,47 @@
+/* MOVEMENTS */
+.movements-wrapper{
+    display: grid;
+}
+
+.movements {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: scroll;
+    max-height: 600px;
+}
+
+.movements-row {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.movements-type {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.1rem 1rem;
+    border-radius: 10rem;
+}
+
+.movements-date {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #666;
+}
+
+.movements-type--deposit {
+    background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements-type--withdrawal {
+    background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.movements-value {
+    font-size: 1.7rem;
+}
