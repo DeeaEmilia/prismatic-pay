@@ -9,37 +9,7 @@
 body {
     font-family: 'Raleway', sans-serif;
     color: var(--font-color);
-    background-color: var(--bg-color);
-}
-
-.section {
-    padding: 1rem clamp(0.5rem, 10vw, 6rem) 1rem clamp(0rem, 10vw, 6rem);
-    transition: transform 1s, opacity 1s;
-}
-
-.section--hidden {
-    opacity: 0;
-    transform: translateY(8rem);
-}
-
-.section-description {
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: 3rem;
-}
-
-.section-header {
-    font-size: 4rem;
-    line-height: 1.3;
-    font-weight: 500;
-}
-
-p {
-    color: var(--font-color-lighter);
-}
-
-img {
-    transition: filter 0.5s;
+    background-color: whitesmoke;
 }
 
 .lazy {
