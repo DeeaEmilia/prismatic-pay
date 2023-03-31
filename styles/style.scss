@@ -5,9 +5,6 @@
 @import 'main';
 @import 'modal';
 @import 'bank';
-@import 'movements';
-@import 'summary';
-@import 'bank-operations';
 
 body {
     font-family: 'Raleway', sans-serif;
@@ -45,10 +42,10 @@ img {
     transition: filter 0.5s;
 }
 
-.lazy-img {
+.lazy {
     filter: blur(20px);
 }
 
 .visually-hidden {
-display: none;
+    display: none;
 }

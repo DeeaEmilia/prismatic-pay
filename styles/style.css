@@ -694,64 +694,6 @@ a {
   font-weight: 400;
 }
 
-/* SUMMARY */
-.welcome-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.welcome-wrapper .welcome {
-  font-size: 1.5rem;
-}
-
-/* MOVEMENTS */
-.movements-wrapper {
-  display: grid;
-}
-
-.movements {
-  background-color: #fff;
-  border-radius: 1rem;
-  overflow: scroll;
-  max-height: 600px;
-}
-
-.movements-row {
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.movements-type {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #fff;
-  padding: 0.1rem 1rem;
-  border-radius: 10rem;
-}
-
-.movements-date {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #666;
-}
-
-.movements-type--deposit {
-  background-image: linear-gradient(to top left, #39b385, #9be15d);
-}
-
-.movements-type--withdrawal {
-  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
-}
-
-.movements-value {
-  font-size: 1.7rem;
-}
-
 .summary-wrapper {
   display: flex;
   align-items: center;
@@ -802,6 +744,62 @@ a {
 
 .timer {
   font-weight: 600;
+}
+
+.welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.welcome-wrapper .welcome {
+  font-size: 1.5rem;
+}
+
+.movements-wrapper {
+  display: grid;
+}
+
+.movements {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: scroll;
+  max-height: 600px;
+}
+
+.movements-row {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.movements-type {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.1rem 1rem;
+  border-radius: 10rem;
+}
+
+.movements-date {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #666;
+}
+
+.movements-type--deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements-type--withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.movements-value {
+  font-size: 1.7rem;
 }
 
 .operations-wrapper {
@@ -864,9 +862,7 @@ h2 {
   transition: all 0.3s;
 }
 
-/* End exceptions */
 .form-btn:focus {
-  outline: none;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -906,7 +902,7 @@ img {
   transition: filter 0.5s;
 }
 
-.lazy-img {
+.lazy {
   filter: blur(20px);
 }
 
