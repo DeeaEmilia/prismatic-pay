@@ -1,4 +1,5 @@
-'use strict';
+// import class Account
+import Account from './account.js';
 
 //Note: Variables creation for evenListeners and other functionalities
 
@@ -8,71 +9,48 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnOpenModal = document.querySelectorAll('.btn--show-modal');
 
-const primaryNav = document.querySelector('.primary-navigation');
-//Get the mobile navbar
-const navToggle = document.querySelector('.mobile-nav-toggle');
-
 // Selecting input fields, labels, and buttons related to user account
-const inputLoginUsername = document.getElementById('user-id');
-const inputLoginPassword = document.getElementById('user-password');
-const labelWelcome = document.querySelector('.welcome');
-const labelDate = document.querySelector('.date');
-const labelBalance = document.querySelector('.balance-value');
-const labelSumIn = document.querySelector('.summary-value--in');
-const labelSumOut = document.querySelector('.summary-value--out');
-const labelSumInterest = document.querySelector('.summary-value--interest');
-const labelTimer = document.querySelector('.timer');
-const containerApp = document.querySelector('.app');
-const containerMovements = document.querySelector('.movements');
 const btnTransfer = document.querySelector('.form-btn--transfer');
 const btnLoan = document.querySelector('.form-btn--loan');
 const btnClose = document.querySelector('.form-btn--close');
 const btnSort = document.querySelector('.btn--sort');
-const inputTransferTo = document.querySelector('.form-input--to');
-const inputTransferAmount = document.querySelector('.form-input--amount');
-const inputLoanAmount = document.querySelector('.form-input--loan-amount');
-const inputCloseUsername = document.querySelector('.form-input--user');
-const inputClosePassword = document.querySelector('.form-input--password');
 
 // Selecting various elements related to UI
 const marketing = document.getElementById('marketing-content');
 const headerTitle = document.querySelector('.header-title');
 const accountInfo = document.getElementById('account-info');
-const navLogo = document.querySelector('.nav-logo');
-const navLinks = document.querySelectorAll('.nav-link');
-const backLink = document.querySelector('.back');
-const suggestions = document.getElementById('suggestions');
+
 const showSuggestionsButton = document.getElementById('show-suggestions');
 
 //Note: Data
 
-const account1 = {
-    owner: 'Violet Summers',
-    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-    interestRate: 1.2,
-    password: 'ArrayOfSunshine',
-};
+const account1 = new Account(
+    'Violet Summers',
+    [200, 450, -400, 3000, -650, -130, 70, 1300],
+    1.2,
+    'ArrayOfSunshine'
+);
 
-const account2 = {
-    owner: 'Cyan Thompson',
-    movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
-    interestRate: 1.5,
-    password: 'JSBankVault!',
-};
+const account2 = new Account(
+    'Cyan Thompson',
+    [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    1.5,
+    'JSBankVault!'
+);
 
-const account3 = {
-    owner: 'Amber Lynn Rayleigh',
-    movements: [200, -200, 340, -300, -20, 50, 400, -460],
-    interestRate: 0.7,
-    password: 'SassMaster2000',
-};
+const account3 = new Account(
+    'Amber Lynn Rayleigh',
+    [200, -200, 340, -300, -20, 50, 400, -460],
+    0.7,
+    'SassMaster2000'
+);
 
-const account4 = {
-    owner: 'Indigo Martinez',
-    movements: [430, 1000, 700, 50, 90],
-    interestRate: 1,
-    password: 'MethodToTheMadness',
-};
+const account4 = new Account(
+    'Indigo Martinez',
+    [430, 1000, 700, 50, 90],
+    1,
+    'MethodToTheMadness'
+);
 
 const accounts = [account1, account2, account3, account4];
 
@@ -150,6 +128,8 @@ const showMarketingAndNavigate = function (event) {
 
 //Note: function for displaying deposits, withdrawals and loans
 const displayMovements = function (movements, sort = false) {
+    // Get the container for the movements
+    const containerMovements = document.querySelector('.movements');
     // Clear previous user's movements
     containerMovements.innerHTML = '';
 
@@ -177,6 +157,9 @@ const displayMovements = function (movements, sort = false) {
 
 // Note: function to add up all withdrawals and deposits and display them
 const calcDisplayBalance = function (acc) {
+    // Get the balance label
+    const labelBalance = document.querySelector('.balance-value');
+
     // Calculate the total balance of the account by summing up all movements
     acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
 
@@ -186,6 +169,11 @@ const calcDisplayBalance = function (acc) {
 
 // Note: function to calculate and display the total income, total outgoing, and total interest earned by an account
 const calcDisplaySummary = function (acc) {
+    // Get the labels for sumIn, sumOut and sumInterest
+    const labelSumIn = document.querySelector('.summary-value--in');
+    const labelSumOut = document.querySelector('.summary-value--out');
+    const labelSumInterest = document.querySelector('.summary-value--interest');
+
     // Calculate the total income (i.e. sum of all deposits)
     const incomes = acc.movements
         .filter((mov) => mov > 0)
@@ -221,6 +209,7 @@ const updateUI = function (acc) {
 
 // Note: function to display a list of all usernames and passwords for demo purposes
 function displaySuggestions() {
+    const suggestions = document.getElementById('suggestions');
     // Clear the suggestions container
     suggestions.innerHTML = '';
 
@@ -236,6 +225,12 @@ function displaySuggestions() {
 document.getElementById('login-form').addEventListener('submit', function (e) {
     // Prevent the default form submission behavior
     e.preventDefault();
+
+    // Get the user inputs
+    const inputLoginUsername = document.getElementById('user-id');
+    const inputLoginPassword = document.getElementById('user-password');
+
+    const labelWelcome = document.querySelector('.welcome');
 
     // Find the account with the entered username
     currentAccount = accounts.find(
@@ -271,6 +266,10 @@ btnTransfer.addEventListener('click', function (e) {
     // Prevent the default form submission behavior
     e.preventDefault();
 
+    // Get the user input for transfer to and the amount
+    const inputTransferTo = document.querySelector('.form-input--to');
+    const inputTransferAmount = document.querySelector('.form-input--amount');
+
     // Get the amount to transfer and the receiver account
     const amount = Number(inputTransferAmount.value);
     const receiverAcc = accounts.find(
@@ -290,7 +289,7 @@ btnTransfer.addEventListener('click', function (e) {
         currentAccount.movements.push(-amount);
         receiverAcc.movements.push(amount);
 
-        // Update the UI with the new account information
+        // Update the UI with the new account intnLoanformation
         updateUI(currentAccount);
     } else if (amount <= 0) {
         alert('The amount must be higher than 0.');
@@ -311,6 +310,9 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
     // Prevent the default form submission behavior
     e.preventDefault();
+
+    // Get user input for loan amount request
+    const inputLoanAmount = document.querySelector('.form-input--loan-amount');
 
     // Get the loan amount
     const amount = Number(inputLoanAmount.value);
@@ -340,6 +342,10 @@ btnClose.addEventListener('click', function (e) {
     // Prevent the default form submission behavior
     e.preventDefault();
 
+    // Get username and password
+    const inputCloseUsername = document.querySelector('.form-input--user');
+    const inputClosePassword = document.querySelector('.form-input--password');
+
     // Check if the username and password are correct and close the account if they are
     if (
         inputCloseUsername.value === currentAccount.username &&
@@ -362,6 +368,10 @@ btnClose.addEventListener('click', function (e) {
 
 // Event listener to the logo and the nav-links
 document.addEventListener('DOMContentLoaded', function () {
+    const navLogo = document.querySelector('.nav-logo');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const backLink = document.querySelector('.back');
+
     navLogo.addEventListener('click', showMarketingAndNavigate);
     backLink.addEventListener('click', showMarketingAndNavigate);
     navLinks.forEach((link) => {
@@ -389,22 +399,13 @@ document.addEventListener('keydown', function (e) {
 showSuggestionsButton.addEventListener('click', displaySuggestions);
 
 // Event listener for sort button
-
-// define a state variable
-let sorted = false;
 btnSort.addEventListener('click', function (e) {
+    // define a state variable
+    let sorted = false;
     e.preventDefault();
     displayMovements(currentAccount.movements, !sorted);
     sorted = !sorted;
 });
-navToggle.addEventListener('click', () => {
-    const visibility = primaryNav.getAttribute('data-visible');
-    if (visibility === 'false') {
-        primaryNav.setAttribute('data-visible', true);
-        navToggle.setAttribute('aria-expanded', true);
-    } else if (visibility === 'true') {
-        primaryNav.setAttribute('data-visible', false);
-        navToggle.setAttribute('aria-expanded', false);
-    }
-    console.log(visibility);
-});
+
+//Get the mobile navbar
+const navToggle = document.querySelector('.mobile-nav-toggle');
