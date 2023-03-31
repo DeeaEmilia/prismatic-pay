@@ -6,14 +6,14 @@ import Account from './account.js';
 // Selecting modal window elements
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnCloseModal = document.querySelector('.btn-close-modal');
 const btnOpenModal = document.querySelectorAll('.btn--show-modal');
 
 // Selecting input fields, labels, and buttons related to user account
-const btnTransfer = document.querySelector('.form-btn--transfer');
-const btnLoan = document.querySelector('.form-btn--loan');
-const btnClose = document.querySelector('.form-btn--close');
-const btnSort = document.querySelector('.btn--sort');
+const btnTransfer = document.querySelector('.form-btn-transfer');
+const btnLoan = document.querySelector('.form-btn-loan');
+const btnClose = document.querySelector('.form-btn-close');
+const btnSort = document.querySelector('.btn-sort');
 
 // Selecting various elements related to UI
 const marketing = document.getElementById('marketing-content');
@@ -144,9 +144,9 @@ const calcDisplayBalance = function (acc) {
 // Note: function to calculate and display the total income, total outgoing, and total interest earned by an account
 const calcDisplaySummary = function (acc) {
     // Get the labels for sumIn, sumOut and sumInterest
-    const labelSumIn = document.querySelector('.summary-value--in');
-    const labelSumOut = document.querySelector('.summary-value--out');
-    const labelSumInterest = document.querySelector('.summary-value--interest');
+    const labelSumIn = document.querySelector('.summary-value-in');
+    const labelSumOut = document.querySelector('.summary-value-out');
+    const labelSumInterest = document.querySelector('.summary-value-interest');
 
     // Calculate the total income (i.e. sum of all deposits)
     const incomes = acc.movements
@@ -241,8 +241,8 @@ btnTransfer.addEventListener('click', function (e) {
     e.preventDefault();
 
     // Get the user input for transfer to and the amount
-    const inputTransferTo = document.querySelector('.form-input--to');
-    const inputTransferAmount = document.querySelector('.form-input--amount');
+    const inputTransferTo = document.querySelector('.form-input-to');
+    const inputTransferAmount = document.querySelector('.form-input-amount');
 
     // Get the amount to transfer and the receiver account
     const amount = Number(inputTransferAmount.value);
@@ -286,7 +286,7 @@ btnLoan.addEventListener('click', function (e) {
     e.preventDefault();
 
     // Get user input for loan amount request
-    const inputLoanAmount = document.querySelector('.form-input--loan-amount');
+    const inputLoanAmount = document.querySelector('.form-input-loan-amount');
 
     // Get the loan amount
     const amount = Number(inputLoanAmount.value);
@@ -317,8 +317,8 @@ btnClose.addEventListener('click', function (e) {
     e.preventDefault();
 
     // Get username and password
-    const inputCloseUsername = document.querySelector('.form-input--user');
-    const inputClosePassword = document.querySelector('.form-input--password');
+    const inputCloseUsername = document.querySelector('.form-input-user');
+    const inputClosePassword = document.querySelector('.form-input-password');
 
     // Check if the username and password are correct and close the account if they are
     if (
@@ -380,5 +380,3 @@ btnSort.addEventListener('click', function (e) {
     displayMovements(currentAccount.movements, !sorted);
     sorted = !sorted;
 });
-
-
