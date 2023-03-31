@@ -85,32 +85,6 @@ const showMarketing = function () {
 
 let currentAccount;
 
-const currencies = new Map([
-    ['USD', 'United States dollar'],
-    ['EUR', 'Euro'],
-    ['GBP', 'Pound sterling'],
-    ['RON', 'Romanian leu'],
-]);
-
-// Note: function for creating usernames
-const createUsernames = function (accs) {
-    // Loop through each account and create a username for it
-    accs.forEach(function (acc) {
-        // Split the owner's name into an array of words and get the first letter of the first word
-        const names = acc.owner.toLowerCase().split(' ');
-        const firstNameInitial = names[0][0];
-
-        // Get the last name
-        const lastName = names[names.length - 1];
-
-        // Combine the first letter of the first name and the last name to create the username
-        acc.username = firstNameInitial + lastName;
-    });
-};
-
-// Note: Call the createUsernames function with the accounts array as an argument
-createUsernames(accounts);
-
 // Note: function to show the marketing content and smoothly navigate to a section
 const showMarketingAndNavigate = function (event) {
     // Call the showMarketing function
@@ -407,5 +381,4 @@ btnSort.addEventListener('click', function (e) {
     sorted = !sorted;
 });
 
-//Get the mobile navbar
-const navToggle = document.querySelector('.mobile-nav-toggle');
+

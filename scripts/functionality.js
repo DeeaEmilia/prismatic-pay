@@ -1,5 +1,7 @@
 //Note: functionality of the site unrelated to the bank movements
 
+//Get the mobile navbar
+const navToggle = document.querySelector('.mobile-nav-toggle');
 // Event listener for navigation toggle from hamburger menu to normal and vice versa
 navToggle.addEventListener('click', () => {
     const primaryNav = document.querySelector('.primary-navigation');
