@@ -1,6 +1,10 @@
 .section {
-    padding: 1rem clamp(0.5rem, 10vw, 6rem) 1rem clamp(0rem, 10vw, 6rem);
+    padding: 1rem;
     transition: transform 1s, opacity 1s;
+
+    @media (min-width: 1200px) {
+        padding: 3rem 10rem;
+    }
 }
 
 .section-description {
@@ -152,40 +156,38 @@ img {
     grid-column: 2;
 }
 
-.operations-icon-1 {
-    background-color: var(--color-secondary-opacity);
-}
-.operations-icon-2 {
+.operations-icon[data-color='primary'] {
     background-color: var(--color-primary-opacity);
+    svg {
+        fill: var(--color-primary);
+    }
 }
-.operations-icon-3 {
+.operations-icon[data-color='secondary'] {
+    background-color: var(--color-secondary-opacity);
+    svg {
+        fill: var(--color-secondary-darker);
+    }
+}
+.operations-icon[data-color='tertiary'] {
     background-color: var(--color-tertiary-opacity);
-}
-.operations-icon-1 svg {
-    fill: var(--color-secondary-darker);
-}
-.operations-icon-2 svg {
-    fill: var(--color-primary);
-}
-.operations-icon-3 svg {
-    fill: var(--color-tertiary);
+    svg {
+        fill: var(--color-tertiary);
+    }
 }
 
 .testimonial {
     width: 65%;
     position: relative;
-}
 
-.testimonial::before {
-    content: '\201C';
-    position: absolute;
-    top: -5.7rem;
-    left: -6.8rem;
-    line-height: 1;
-    font-size: 20rem;
-    font-family: inherit;
-    color: var(--color-primary);
-    z-index: -1;
+    &::before {
+        content: '\201C';
+        position: absolute;
+        line-height: 1;
+        font-size: 20rem;
+        font-family: inherit;
+        color: var(--color-primary);
+        z-index: -1;
+    }
 }
 
 .testimonial-header {

@@ -1,36 +1,39 @@
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    height: 9rem;
     width: 100%;
+    padding: 1rem clamp(0.5rem, 10vw, 6rem) 1rem clamp(0rem, 10vw, 6rem);
 
+    &.sticky {
+        position: fixed;
+        background-color: hsla(0, 0%, 100%, 0.949);
+    }
     .nav-logo {
+        z-index: 200;
         height: 2.5rem;
         transition: all 0.3s;
-    }
-
-    @media (min-width: 1200px) {
-        padding: 3rem 10rem;
     }
 }
 
 .primary-navigation {
     position: fixed;
-    inset: 0 0 0 50%;
     display: flex;
+    justify-content: flex-end;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: min(30vh, 10rem) 2em;
     background-color: hsla(0, 0%, 38%, 0.566);
     backdrop-filter: blur(1rem);
     transform: translateX(100%);
     transition: transform 350ms ease-out;
+    z-index: 200;
 
     &[data-visible='true'] {
         transform: translateX(0%);
     }
     .nav-item {
-        margin: 1rem 0 1rem 2rem;
+        margin-left: 4rem;
 
         .nav-link {
             font-size: 1.2rem;
@@ -49,7 +52,6 @@
             border-radius: 3rem;
             background-color: var(--color-primary);
             color: var(--font-color);
-            width: fit-content;
         }
 
         .nav-link-btn:hover,
@@ -61,6 +63,7 @@
     @media (min-width: 1200px) {
         position: inherit;
         display: flex;
+        justify-content: flex-end;
         flex-direction: row;
         transform: none;
         backdrop-filter: none;

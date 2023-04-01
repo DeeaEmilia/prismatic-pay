@@ -64,7 +64,7 @@
                 </svg>
                 <span class="visually-hidden">Menu</span>
             </button>
-            <nav class="nav">
+            <nav class="nav sticky">
                 <a href="#">
                     <img
                         src="img/PrismaticPay.png"
@@ -73,24 +73,24 @@
                         id="logo"
                     />
                 </a>
-                <ul class="nav-links primary-navigation" data-visible="false">
+                <ul class="primary-navigation" data-visible="false">
                     <li class="nav-item">
-                        <a class="nav-link" href="#section--1">Features</a>
+                        <a class="nav-link" href="#section-1">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section--2">Operations</a>
+                        <a class="nav-link" href="#section-2">Operations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#section-3">Testimonials</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#section--4">FAQ</a>
+                        <a class="nav-link" href="#section-4">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a
-                            class="nav-link nav-link--btn btn--show-modal"
+                            class="nav-link nav-link-btn btn--show-modal"
                             href="#"
-                            >My Account</a
+                            >Account</a
                         >
                     </li>
                 </ul>
@@ -119,7 +119,7 @@
         </header>
 
         <div id="marketing-content">
-            <section class="section">
+            <section class="section" id="section-1">
                 <div class="section-title">
                     <h2 class="section-description">Features</h2>
                     <h3 class="section-header">
@@ -197,7 +197,7 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="section-2">
                 <div class="section-title">
                     <h2 class="section-description">Operations</h2>
                     <h3 class="section-header">
@@ -229,7 +229,7 @@
                     <div
                         class="operations-content operations-content-1 operations-content-active"
                     >
-                        <div class="operations-icon operations-icon-1">
+                        <div class="operations-icon" data-color="secondary">
                             <svg>
                                 <use
                                     xlink:href="img/icons.svg#icon-upload"
@@ -237,7 +237,7 @@
                             </svg>
                         </div>
                         <h5 class="operations-header">
-                            Tranfser money to anyone, instantly! No fees, no BS.
+                            transfer money to anyone, instantly! No fees, no BS.
                         </h5>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="operations-content operations-content-2">
-                        <div class="operations-icon operations-icon-2">
+                        <div class="operations-icon" data-color="primary">
                             <svg>
                                 <use xlink:href="img/icons.svg#icon-home"></use>
                             </svg>
@@ -267,7 +267,7 @@
                         </p>
                     </div>
                     <div class="operations-content operations-content-3">
-                        <div class="operations-icon operations-icon-3">
+                        <div class="operations-icon" data-color="tertiary">
                             <svg>
                                 <use
                                     xlink:href="img/icons.svg#icon-user-x"
@@ -289,7 +289,7 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="section-3">
                 <div class="section-title testimonials-title">
                     <h2 class="section-description">Not sure yet?</h2>
                     <h3 class="section-header">
@@ -392,7 +392,7 @@
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="section-4">
                 <div class="section-title testimonials-title">
                     <h2 class="section-description">Need more info?</h2>
                     <h3 class="section-header">Frequently Asked Questions:</h3>

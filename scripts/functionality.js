@@ -59,6 +59,9 @@ navToggle.addEventListener('click', () => {
     console.log(visibility);
 });
 
+
+
+
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelector('.dots');
 const dotButtons = [];
