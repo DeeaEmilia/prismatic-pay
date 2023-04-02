@@ -14,6 +14,20 @@
     }
 }
 
+#logo {
+    display: none;
+    @media (min-width: 420px) {
+        display: inherit;
+    }
+}
+
+#small-logo {
+    display: inherit;
+    @media (min-width: 420px) {
+        display: none;
+    }
+}
+
 .primary-navigation {
     position: fixed;
     inset: 0 0 0 30%;
@@ -134,8 +148,6 @@
     }
 }
 
-
-
 .header {
     display: flex;
     flex-direction: column;
@@ -146,10 +158,7 @@
     display: grid;
     grid-template-columns: 1fr;
 
-
-
     h1 {
-
         line-height: 1.35;
         grid-column: span 2;
 
@@ -168,7 +177,6 @@
     @media (min-width: 1200px) {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
-  
     }
 }
 
