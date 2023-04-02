@@ -286,6 +286,10 @@ p {
   font-size: clamp(1rem, 3vw, 2rem);
 }
 
+h5 {
+  font-size: clamp(1rem, 3vw, 1.75rem);
+}
+
 img {
   transition: filter 0.5s;
 }
@@ -334,10 +338,6 @@ img {
   fill: var(--color-primary);
 }
 
-.features-header {
-  font-size: clamp(1rem, 3vw, 1.75rem);
-}
-
 .operations {
   background-color: hsl(0, 0%, 100%);
 }
@@ -369,9 +369,6 @@ img {
 
 .operations-content {
   display: none;
-}
-.operations-content .operations-header {
-  font-size: clamp(1rem, 3vw, 1.75rem);
 }
 .operations-content .operations-icon {
   display: flex;
@@ -426,48 +423,36 @@ img {
 }
 
 .testimonial {
-  width: 65%;
   position: relative;
 }
 .testimonial::before {
   content: "“";
   position: absolute;
   line-height: 1;
+  font-size: 20rem;
   font-family: inherit;
   color: var(--color-primary);
   z-index: -1;
 }
-
-.testimonial-header {
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-text {
-  margin-bottom: 3.5rem;
+.testimonial .testimonial-text {
   color: hsl(0, 0%, 40%);
+  background-color: aquamarine;
 }
-
-.testimonial-author {
+.testimonial .testimonial-author {
   display: grid;
   grid-template-columns: 1fr;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
 }
-
-.testimonial-photo {
+.testimonial .testimonial-author .testimonial-photo {
   grid-row: 1/span 2;
   width: 6.5rem;
   border-radius: 50%;
 }
-
-.testimonial-name {
+.testimonial .testimonial-author .testimonial-name {
   font-weight: 500;
   align-self: end;
   margin: 0;
 }
-
-.testimonial-location {
+.testimonial .testimonial-author .testimonial-location {
   font-size: 1.5rem;
 }
 

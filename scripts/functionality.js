@@ -61,7 +61,7 @@ navToggle.addEventListener('click', () => {
 
 
 
-
+const sliderContainer = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelector('.dots');
 const dotButtons = [];
@@ -131,3 +131,36 @@ dotButtons.forEach((dot, index) => {
         }
     });
 });
+
+//function for swipe motion on mobile
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+}
+
+function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX;
+}
+
+function handleTouchEnd() {
+    // Calculate the distance and direction of the swipe
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > 50) {
+        // Adjust the value based on your desired swipe sensitivity
+        // Swipe to the right (previous slide)
+        prevSlide();
+    } else if (swipeDistance < -50) {
+        // Adjust the value based on your desired swipe sensitivity
+        // Swipe to the left (next slide)
+        nextSlide();
+    }
+}
+
+// Event listeners to the slider container
+sliderContainer.addEventListener('touchstart', handleTouchStart);
+sliderContainer.addEventListener('touchmove', handleTouchMove);
+sliderContainer.addEventListener('touchend', handleTouchEnd);
