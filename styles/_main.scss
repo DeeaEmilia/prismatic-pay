@@ -1,3 +1,43 @@
+.header-title {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+
+    h1 {
+        font-size: clamp(2rem, 3vw, 5rem);
+        line-height: 1.35;
+        grid-column: span 2;
+
+        span {
+            font-size: clamp(2rem, 4vw, 7rem);
+        }
+    }
+
+    h4 {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        font-weight: 500;
+        grid-column: span 2;
+        max-width: 40ch;
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3rem 10rem;
+        gap: 2rem;
+        justify-items: start;
+    }
+}
+
+.header-img {
+    width: clamp(10rem, 50vw, 40rem);
+
+    @media (min-width: 1200px) {
+        grid-row: span 2;
+        margin-left: auto;
+    }
+}
+
 .section {
     transition: transform 1s, opacity 1s;
 
