@@ -167,7 +167,7 @@ sliderContainer.addEventListener('touchend', handleTouchEnd);
 
 // Note: progress bar
 
-document.addEventListener('DOMContentLoaded', function () {
+function startAnimation() {
     const barText = document.querySelector('.bar-text');
     const bar = document.querySelector('.bar');
 
@@ -197,12 +197,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10);
     }
 
-    function startAnimation() {
-        animateMoney();
-        animateBar();
-    }
+    animateMoney();
+    animateBar();
+}
 
-     startAnimation();
+document.addEventListener('DOMContentLoaded', function () {
+    startAnimation();
 });
 
 const chart = document.querySelector('.chart');
@@ -227,3 +227,17 @@ const chartObserver = new IntersectionObserver(
     observerOptions
 );
 chartObserver.observe(chart);
+
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
