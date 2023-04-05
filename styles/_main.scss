@@ -42,6 +42,8 @@ img {
 }
 .features-normal {
     display: grid;
+    justify-items: center;
+    align-items: center;
     @media (min-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -49,12 +51,14 @@ img {
 
 .features-reverse {
     display: grid;
+    justify-items: center;
+    align-items: center;
 
     @media (min-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
-        
+
         img {
-            order:2;
+            order: 2;
         }
         p {
             order: 0;

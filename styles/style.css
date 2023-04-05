@@ -307,6 +307,8 @@ img {
 
 .features-normal {
   display: grid;
+  justify-items: center;
+  align-items: center;
 }
 @media (min-width: 1200px) {
   .features-normal {
@@ -316,6 +318,8 @@ img {
 
 .features-reverse {
   display: grid;
+  justify-items: center;
+  align-items: center;
 }
 @media (min-width: 1200px) {
   .features-reverse {
@@ -902,7 +906,7 @@ h2 {
 body {
   font-family: "Raleway", sans-serif;
   color: var(--font-color);
-  background-color: whitesmoke;
+  background-color: hsl(180, 3%, 94%);
 }
 
 .lazy {
