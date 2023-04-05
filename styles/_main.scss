@@ -37,8 +37,28 @@ img {
     justify-items: center;
 
     @media (min-width: 1200px) {
-        grid-template-columns: repeat(2, 1fr);
         gap: 4rem;
+    }
+}
+.features-normal {
+    display: grid;
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.features-reverse {
+    display: grid;
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+        
+        img {
+            order:2;
+        }
+        p {
+            order: 0;
+        }
     }
 }
 

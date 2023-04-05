@@ -301,8 +301,31 @@ img {
 }
 @media (min-width: 1200px) {
   .features {
-    grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+  }
+}
+
+.features-normal {
+  display: grid;
+}
+@media (min-width: 1200px) {
+  .features-normal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.features-reverse {
+  display: grid;
+}
+@media (min-width: 1200px) {
+  .features-reverse {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-reverse img {
+    order: 2;
+  }
+  .features-reverse p {
+    order: 0;
   }
 }
 
