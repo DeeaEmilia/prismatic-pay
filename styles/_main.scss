@@ -102,6 +102,10 @@
 
     @media (min-width: 1200px) {
         padding: 3rem 10rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
 }
 
