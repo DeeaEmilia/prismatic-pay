@@ -97,7 +97,7 @@ img {
     @media (min-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
 
-        img {
+        .bar-container {
             order: 2;
         }
         p {
@@ -119,6 +119,52 @@ img {
     flex-direction: column;
     align-items: center;
 }
+
+// progress bar
+
+.bar-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.chart {
+    width: 100%;
+    height: 30px;
+    background-color: #dadada;
+    position: relative;
+    border-radius: 25px;
+}
+
+.bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+}
+
+.bar-inner {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: 25px;
+}
+
+.bar-text {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+// end of progress bar
 
 .features-icon {
     display: flex;
@@ -358,7 +404,7 @@ img {
 }
 .question {
     margin: 2rem 0;
-    font-size: 3rem;
+    font-size: clamp(1rem, 3vw, 2rem);
 }
 
 .answer {

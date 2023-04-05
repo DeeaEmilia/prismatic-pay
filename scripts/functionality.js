@@ -164,3 +164,66 @@ function handleTouchEnd() {
 sliderContainer.addEventListener('touchstart', handleTouchStart);
 sliderContainer.addEventListener('touchmove', handleTouchMove);
 sliderContainer.addEventListener('touchend', handleTouchEnd);
+
+// Note: progress bar
+
+document.addEventListener('DOMContentLoaded', function () {
+    const barText = document.querySelector('.bar-text');
+    const bar = document.querySelector('.bar');
+
+    const targetAmount = 9000;
+
+    function animateMoney() {
+        let amount = 0;
+        const animation = setInterval(() => {
+            if (amount < targetAmount) {
+                amount += targetAmount / 800;
+                barText.textContent = Math.floor(amount) + ' €';
+            } else {
+                clearInterval(animation);
+            }
+        }, 10);
+    }
+
+    function animateBar() {
+        let width = 0;
+        const animation = setInterval(() => {
+            if (width < 80) {
+                width += 0.1;
+                bar.style.width = width + '%';
+            } else {
+                clearInterval(animation);
+            }
+        }, 10);
+    }
+
+    function startAnimation() {
+        animateMoney();
+        animateBar();
+    }
+
+     startAnimation();
+});
+
+const chart = document.querySelector('.chart');
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5,
+};
+
+const observerCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            startAnimation();
+            observer.unobserve(chart);
+        }
+    });
+};
+
+const chartObserver = new IntersectionObserver(
+    observerCallback,
+    observerOptions
+);
+chartObserver.observe(chart);

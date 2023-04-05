@@ -1,15 +1,19 @@
-#account-info {
+.app {
     display: none;
-    padding: 3rem 10rem;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+
+    @media (min-width: 1200px) {
+        padding: 3rem 10rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 
 // Balance
 
 .balance {
     display: flex;
-
     justify-content: space-between;
     margin-bottom: 2rem;
 }
@@ -152,8 +156,12 @@
 
 .operation {
     border-radius: 1rem;
-    padding: 3rem 4rem;
+    padding: 1rem;
     color: #333;
+    
+    @media (min-width: 1200px) {
+        padding: 3rem 4rem;
+    }
 }
 
 .operation-transfer {

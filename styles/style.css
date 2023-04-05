@@ -329,7 +329,7 @@ img {
   .features-reverse {
     grid-template-columns: repeat(2, 1fr);
   }
-  .features-reverse img {
+  .features-reverse .bar-container {
     order: 2;
   }
   .features-reverse p {
@@ -351,6 +351,48 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.bar-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.chart {
+  width: 100%;
+  height: 30px;
+  background-color: #dadada;
+  position: relative;
+  border-radius: 25px;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+}
+
+.bar-inner {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  border-radius: 25px;
+}
+
+.bar-text {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 10px;
+  font-size: 18px;
 }
 
 .features-icon {
@@ -585,7 +627,7 @@ img {
 
 .question {
   margin: 2rem 0;
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 2rem);
 }
 
 .answer {
@@ -704,11 +746,17 @@ img {
   gap: 1rem;
 }
 
-#account-info {
+.app {
   display: none;
-  padding: 3rem 10rem;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  padding: 3rem 2rem;
+}
+@media (min-width: 1200px) {
+  .app {
+    padding: 3rem 10rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 .balance {
@@ -846,8 +894,13 @@ img {
 
 .operation {
   border-radius: 1rem;
-  padding: 3rem 4rem;
+  padding: 1rem;
   color: #333;
+}
+@media (min-width: 1200px) {
+  .operation {
+    padding: 3rem 4rem;
+  }
 }
 
 .operation-transfer {
@@ -901,10 +954,6 @@ h2 {
 
 .form-btn:focus {
   background-color: rgba(255, 255, 255, 0.8);
-}
-
-* {
-  border: 1px solid red; /* This will apply a red border around all elements */
 }
 
 body {
