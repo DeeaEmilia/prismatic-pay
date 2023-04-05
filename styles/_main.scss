@@ -64,17 +64,17 @@
     margin-bottom: 10rem;
 
     h1 {
-        font-size: clamp(2rem, 3vw, 5rem);
+        font-size: clamp(2rem, 3vw, 6rem);
         line-height: 1.35;
         grid-column: span 2;
 
         span {
-            font-size: clamp(2rem, 4vw, 7rem);
+            font-size: clamp(2rem, 4vw, 12rem);
         }
     }
 
     h4 {
-        font-size: clamp(1rem, 5vw, 1.5rem);
+        font-size: clamp(1rem, 5vw, 3rem);
         font-weight: 500;
         grid-column: span 2;
         max-width: 40ch;
@@ -112,22 +112,22 @@
 .section-description {
     text-transform: uppercase;
     color: var(--color-primary);
-    font-size: clamp(1rem, 5vw, 5rem);
+    font-size: clamp(1rem, 2vw, 7rem);
 }
 
 .section-header {
-    font-size: clamp(1rem, 5vw, 2rem);
+    font-size: clamp(1rem, 2vw, 4rem);
     line-height: 1.3;
     font-weight: 500;
 }
 
 p {
     color: var(--font-color-lighter);
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 3rem);
 }
 
 h5 {
-    font-size: clamp(1rem, 3vw, 1.75rem);
+    font-size: clamp(1rem, 2vw, 4rem);
 }
 
 img {
@@ -356,7 +356,9 @@ img {
         top: 0;
         left: 0;
     }
-
+    .testimonial-text {
+        font-size: clamp(1rem, 2vw, 3rem);
+    }
     .testimonial-author {
         display: grid;
         grid-template-columns: 1fr;
@@ -369,20 +371,19 @@ img {
         .testimonial-name {
             font-weight: 500;
             align-self: end;
+            font-size: clamp(1rem, 2vw, 3rem);
         }
         .testimonial-location {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 2vw, 2rem);
         }
     }
     @media (min-width: 1200px) {
         padding: 7rem 10rem;
         background-color: var(--color-hero);
         border-radius: 25px;
-        height: 32rem;
+        height: 60vh;
     }
 }
-
-
 
 .testimonials-title {
     margin-bottom: 0;
@@ -391,7 +392,7 @@ img {
 .slider {
     position: relative;
     width: 100%;
-    height: 32rem;
+    height: 60vh;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -481,12 +482,16 @@ img {
 }
 .question {
     margin: 2rem 0;
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 3vw, 3rem);
 }
 
 .answer {
     margin: 1rem 0;
+    p {
+        font-size: clamp(1rem, 3vw, 3rem);
+    }
 }
+
 .login-details {
     margin: 1rem 0;
     line-height: 1.5;
