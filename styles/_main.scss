@@ -480,26 +480,6 @@ img {
 .dot-active {
     background-color: #555;
 }
-.question {
-    margin: 2rem 0;
-    font-size: clamp(1rem, 3vw, 3rem);
-}
-
-.answer {
-    margin: 1rem 0;
-    p {
-        font-size: clamp(1rem, 3vw, 3rem);
-    }
-}
-
-.login-details {
-    margin: 1rem 0;
-    line-height: 1.5;
-}
-
-.functionality-answer {
-    line-height: 1.5;
-}
 
 //footer
 

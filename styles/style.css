@@ -734,27 +734,6 @@ img {
   background-color: #555;
 }
 
-.question {
-  margin: 2rem 0;
-  font-size: clamp(1rem, 3vw, 3rem);
-}
-
-.answer {
-  margin: 1rem 0;
-}
-.answer p {
-  font-size: clamp(1rem, 3vw, 3rem);
-}
-
-.login-details {
-  margin: 1rem 0;
-  line-height: 1.5;
-}
-
-.functionality-answer {
-  line-height: 1.5;
-}
-
 .footer {
   padding: 5rem 3rem;
   background-color: hsl(230, 5%, 23%);
