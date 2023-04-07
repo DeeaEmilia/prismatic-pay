@@ -5,10 +5,13 @@
     transform: translate(-50%, -50%);
     max-width: 60rem;
     background-color: hsl(0, 0%, 95%);
-    padding: 5rem 6rem;
+    padding: 1rem;
     box-shadow: 0 4rem 6rem hsla(0, 0%, 0%, 0.3);
     z-index: 1000;
     transition: all 0.5s;
+    @media (min-width: 1200px) {
+        padding: 5rem 6rem;
+    }
 }
 
 .overlay {
@@ -23,30 +26,37 @@
 }
 
 .modal-header {
-    font-size: 3.25rem;
+    font-size: clamp(1.25rem, 2vw, 3.5rem);
     margin-bottom: 4.5rem;
     line-height: 1.5;
+    text-align: center;
 }
 
 .modal-form {
     margin: 0 3rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     align-items: center;
     gap: 2.5rem;
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .modal-form label {
-    font-size: 1.7rem;
+    font-size: clamp(1rem, 2vw, 1.7rem);
     font-weight: 500;
 }
 
 .modal-form input {
-    font-size: 1.7rem;
+    font-size: clamp(1rem, 2vw, 1.7rem);
     padding: 1rem 1.5rem;
     border: 1px solid hsl(0, 0%, 87%);
     border-radius: 0.5rem;
-    grid-column: span 3;
+    @media (min-width: 1200px) {
+        grid-column: span 3;
+    }
 }
 
 .btn-close-modal {
@@ -54,7 +64,7 @@
     color: inherit;
     position: absolute;
     top: 0.5rem;
-    right: 2rem;
+    right: 3rem;
     font-size: 4rem;
     cursor: pointer;
     border: none;
@@ -68,7 +78,10 @@
 
 #suggestions {
     display: grid;
-    padding: 2rem 3rem;
+
     grid-template-columns: 1fr;
     gap: 1rem;
+    @media (min-width: 1200px) {
+        padding: 2rem 3rem;
+    }
 }

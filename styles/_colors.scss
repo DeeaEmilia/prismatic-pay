@@ -1,5 +1,4 @@
 :root {
-    --color-hero: hsl(0, 0%, 92%);
     --color-primary: hsl(268, 67%, 80%);
     --color-secondary: hsl(154, 52%, 56%);
     --color-tertiary: hsl(53, 97%, 70%);
@@ -11,18 +10,14 @@
     --color-secondary-opacity: hsl(173, 58%, 40%, 0.5);
     --color-tertiary-opacity: hsl(53, 98%, 70%, 0.5);
     --gradient-primary: linear-gradient(
-        to top left,
-        hsl(173, 58%, 39%),
-        hsl(268, 67%, 66%),
-        hsl(53, 98%, 70%)
-    );
-    --gradient-secondary: linear-gradient(
-        to top left,
-        hsl(41, 100%, 51%),
-        hsl(48, 100%, 51%)
+        to right,
+        var(--bg-color),
+        var(--color-primary-opacity),
+        var(--color-secondary-opacity)
     );
     --font-color: hsl(0, 0%, 27%);
     --font-color-lighter: hsl(0, 0%, 39%);
     --font-color-darker: hsl(0, 0%, 1%);
     --bg-color: hsl(0, 0%, 100%);
+    --color-hero: hsl(0, 0%, 92%);
 }

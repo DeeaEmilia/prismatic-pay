@@ -182,7 +182,8 @@ const updateUI = function (acc) {
 };
 
 // Note: function to display a list of all usernames and passwords for demo purposes
-function displaySuggestions() {
+function displaySuggestions(e) {
+    e.preventDefault();
     const suggestions = document.getElementById('suggestions');
     // Clear the suggestions container
     suggestions.innerHTML = '';

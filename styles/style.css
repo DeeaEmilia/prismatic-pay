@@ -20,7 +20,6 @@ a {
 }
 
 :root {
-  --color-hero: hsl(0, 0%, 92%);
   --color-primary: hsl(268, 67%, 80%);
   --color-secondary: hsl(154, 52%, 56%);
   --color-tertiary: hsl(53, 97%, 70%);
@@ -32,35 +31,37 @@ a {
   --color-secondary-opacity: hsl(173, 58%, 40%, 0.5);
   --color-tertiary-opacity: hsl(53, 98%, 70%, 0.5);
   --gradient-primary: linear-gradient(
-      to top left,
-      hsl(173, 58%, 39%),
-      hsl(268, 67%, 66%),
-      hsl(53, 98%, 70%)
-  );
-  --gradient-secondary: linear-gradient(
-      to top left,
-      hsl(41, 100%, 51%),
-      hsl(48, 100%, 51%)
+      to right,
+      var(--bg-color),
+      var(--color-primary-opacity),
+      var(--color-secondary-opacity)
   );
   --font-color: hsl(0, 0%, 27%);
   --font-color-lighter: hsl(0, 0%, 39%);
   --font-color-darker: hsl(0, 0%, 1%);
   --bg-color: hsl(0, 0%, 100%);
+  --color-hero: hsl(0, 0%, 92%);
 }
 
 .btn {
   display: inline-block;
   background-color: var(--color-primary);
-  font-size: 1rem;
   font-weight: 500;
   border: none;
-  padding: 1.25rem 4.5rem;
   border-radius: 10rem;
   cursor: pointer;
   transition: all 0.3s;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
 }
 .btn:hover {
   background-color: var(--color-primary-darker);
+}
+@media (min-width: 1200px) {
+  .btn {
+    padding: 1.25rem 4.5rem;
+    font-size: 1rem;
+  }
 }
 
 .btn-text {
@@ -350,6 +351,7 @@ a {
 
 .section {
   transition: transform 1s, opacity 1s;
+  padding: 1rem 2rem;
 }
 @media (min-width: 1200px) {
   .section {
@@ -362,9 +364,16 @@ a {
 }
 
 .section-description {
+  border-radius: 0 25px 25px 0;
+  background-image: var(--gradient-primary);
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary-darker);
   font-size: clamp(1rem, 2vw, 7rem);
+}
+@media (min-width: 1200px) {
+  .section-description {
+    margin: 1rem 0;
+  }
 }
 
 .section-header {
@@ -375,7 +384,7 @@ a {
 
 p {
   color: var(--font-color-lighter);
-  font-size: clamp(1rem, 2vw, 3rem);
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 h5 {
@@ -526,6 +535,11 @@ img {
   background-color: var(--color-secondary-darker);
 }
 
+.operations-tab-2 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .operations-tab-3 {
   background-color: var(--color-tertiary);
 }
@@ -593,45 +607,58 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-image: var(--gradient-primary);
 }
-.testimonial::before {
-  content: "“";
-  position: absolute;
-  line-height: 1;
-  font-size: 20rem;
-  font-family: inherit;
-  color: var(--color-primary);
-  z-index: 1;
-  top: 0;
-  left: 0;
+.testimonial .testimonial-info {
+  display: grid;
+  padding: 1rem;
 }
-.testimonial .testimonial-text {
-  font-size: clamp(1rem, 2vw, 3rem);
+@media (min-width: 1200px) {
+  .testimonial .testimonial-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .testimonial .testimonial-author {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
 }
 .testimonial .testimonial-author .testimonial-photo {
-  grid-row: 1/span 2;
   width: 8rem;
   border-radius: 50%;
 }
+.testimonial .testimonial-author .testimonial-photo {
+  margin-left: auto;
+}
 .testimonial .testimonial-author .testimonial-name {
   font-weight: 500;
-  align-self: end;
-  font-size: clamp(1rem, 2vw, 3rem);
+  margin-left: auto;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 .testimonial .testimonial-author .testimonial-location {
-  font-size: clamp(1rem, 2vw, 2rem);
+  margin-left: auto;
+  font-size: clamp(0.75rem, 2vw, 1.2rem);
 }
 @media (min-width: 1200px) {
   .testimonial {
     padding: 7rem 10rem;
-    background-color: var(--color-hero);
     border-radius: 25px;
-    height: 60vh;
+    height: 65vh;
   }
+  .testimonial::before {
+    content: "“";
+    position: absolute;
+    line-height: 1;
+    font-size: 20rem;
+    font-family: inherit;
+    color: var(--color-primary);
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+}
+.testimonial .testimonial-text {
+  font-size: clamp(1rem, 3vw, 2rem);
 }
 
 .testimonials-title {
@@ -641,7 +668,7 @@ img {
 .slider {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 65vh;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -769,10 +796,15 @@ img {
   transform: translate(-50%, -50%);
   max-width: 60rem;
   background-color: hsl(0, 0%, 95%);
-  padding: 5rem 6rem;
+  padding: 1rem;
   box-shadow: 0 4rem 6rem hsla(0, 0%, 0%, 0.3);
   z-index: 1000;
   transition: all 0.5s;
+}
+@media (min-width: 1200px) {
+  .modal {
+    padding: 5rem 6rem;
+  }
 }
 
 .overlay {
@@ -788,30 +820,40 @@ img {
 }
 
 .modal-header {
-  font-size: 3.25rem;
+  font-size: clamp(1.25rem, 2vw, 3.5rem);
   margin-bottom: 4.5rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 .modal-form {
   margin: 0 3rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
   gap: 2.5rem;
 }
+@media (min-width: 1200px) {
+  .modal-form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .modal-form label {
-  font-size: 1.7rem;
+  font-size: clamp(1rem, 2vw, 1.7rem);
   font-weight: 500;
 }
 
 .modal-form input {
-  font-size: 1.7rem;
+  font-size: clamp(1rem, 2vw, 1.7rem);
   padding: 1rem 1.5rem;
   border: 1px solid hsl(0, 0%, 87%);
   border-radius: 0.5rem;
-  grid-column: span 3;
+}
+@media (min-width: 1200px) {
+  .modal-form input {
+    grid-column: span 3;
+  }
 }
 
 .btn-close-modal {
@@ -819,7 +861,7 @@ img {
   color: inherit;
   position: absolute;
   top: 0.5rem;
-  right: 2rem;
+  right: 3rem;
   font-size: 4rem;
   cursor: pointer;
   border: none;
@@ -833,15 +875,19 @@ img {
 
 #suggestions {
   display: grid;
-  padding: 2rem 3rem;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media (min-width: 1200px) {
+  #suggestions {
+    padding: 2rem 3rem;
+  }
 }
 
 .app {
   display: none;
   grid-template-columns: 1fr;
-  padding: 3rem 2rem;
+  padding: 3rem 0;
 }
 @media (min-width: 1200px) {
   .app {
@@ -864,6 +910,7 @@ img {
 
 .balance-date {
   color: #888;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .balance-value {
@@ -875,6 +922,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .summary {
@@ -883,16 +931,17 @@ img {
   align-items: center;
   padding: 0 0.3rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .summary-label {
-  font-size: 1.2rem;
+  font-size: clamp(1.25rem, 2vw, 2.2rem);
   font-weight: 500;
   text-transform: uppercase;
 }
 
 .summary-value {
-  font-size: 2.2rem;
+  font-size: clamp(1.25rem, 2vw, 2.2rem);
 }
 
 .summary-value-in,
@@ -907,7 +956,7 @@ img {
 .btn-sort {
   border: none;
   background: none;
-  font-size: 1.3rem;
+  font-size: clamp(1.25rem, 2vw, 2.2rem);
   font-weight: 500;
   cursor: pointer;
 }
@@ -916,7 +965,7 @@ img {
   padding: 0 0.3rem;
   margin-top: 1.9rem;
   text-align: right;
-  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 2vw, 2.2rem);
 }
 
 .timer {
@@ -929,7 +978,7 @@ img {
   gap: 1rem;
 }
 .welcome-wrapper .welcome {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 2.2rem);
 }
 
 .movements-wrapper {
@@ -944,11 +993,16 @@ img {
 }
 
 .movements-row {
-  padding: 1rem 3rem;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #eee;
+}
+@media (min-width: 1200px) {
+  .movements-row {
+    padding: 1rem 3rem;
+  }
 }
 
 .movements-type {
@@ -1046,10 +1100,6 @@ h2 {
 
 .form-btn:focus {
   background-color: rgba(255, 255, 255, 0.8);
-}
-
-* {
-  border: 1px solid red; /* This will apply a red border around all elements */
 }
 
 body {
